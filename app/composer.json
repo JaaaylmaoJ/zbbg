@@ -1,0 +1,10 @@
+{
+  "require": {
+    "symfony/dotenv": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "src\\"
+    }
+  }
+}
