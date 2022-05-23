@@ -16,15 +16,10 @@ RUN install-php-extensions \
   bcmath \
   intl \
   mbstring
-  #iconv \
-  #json \
-  #xml \
-  #curl \
 
 RUN install-php-extensions pdo_mysql
 RUN install-php-extensions mysqli
 
-# Install composer
 RUN curl -sS https://getcomposer.org/installer | php -- \
     --filename=composer \
     --version=2.0.14 \
@@ -32,10 +27,8 @@ RUN curl -sS https://getcomposer.org/installer | php -- \
 
 RUN install-php-extensions xdebug
 
-# Cleanup apk cache
 RUN rm -rf /var/cache/apk/* \
  && rm -rf /tmp/*
-
 
 COPY ./docker/php/docker-entrypoint.sh /usr/local/bin/
 

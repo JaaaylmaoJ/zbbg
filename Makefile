@@ -1,10 +1,15 @@
 
-init: volume
-	mkdir ./docker/mysql/data || true
-	docker-compose down --remove-orphans
-	docker-compose up -d --force-recreate
+envs:
+	cp -n ./app/.env.dev ./app/.env
+	cp -n .env.dev .env
+	export _uid=$$(id -u) && envsubst < .env.dev > .env
 
-down:
+init: envs volume
+	docker-compose down --remove-orphans
+	docker-compose up -d --force-recreate*
+	./php -- composer i --ignore-platform-reqs
+
+down: envs
 	docker-compose down --remove-orphans
 
 volume:

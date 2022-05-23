@@ -1,16 +1,5 @@
 version: '3.7'
 services:
-  bigland.roads.api:
-    image: nginx:alpine
-    restart: always
-    environment:
-      - VIRTUAL_HOST=zbbg.localhost
-    volumes:
-      - ./app:/var/www/html
-      - ./docker/nginx/common.nginx:/etc/nginx/conf.d/default.conf
-    links:
-      - zbbg.php
-
   zbbg.php:
     restart: always
     build:
@@ -43,8 +32,3 @@ services:
 volumes:
   zbbg.data-mysql:
     external: true
-
-networks:
-  default:
-    external:
-      name: nginx-proxy

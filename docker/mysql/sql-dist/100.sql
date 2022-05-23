@@ -9,15 +9,6 @@ create table users (
     coins   double      not null default 0
 );
 
-/*insert into users
-    (id, days, dt, coins)
-values
-    (1,0, null, 0),
-    (2,1, now(), 10),
-    (3,6, DATE_SUB(NOW(), INTERVAL 1 DAY), 150),
-    (4,9, DATE_SUB(NOW(), INTERVAL 1 DAY), 275),
-    (5,5, DATE_SUB(NOW(), INTERVAL 7 DAY), 100);
-*/
 insert into users
     (id, days, dt, coins)
 values
