@@ -1,5 +1,5 @@
 
-init:
+init: volume
 	mkdir ./docker/mysql/data || true
 	docker-compose down --remove-orphans
 	docker-compose up -d --force-recreate

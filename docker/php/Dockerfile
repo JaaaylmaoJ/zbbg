@@ -1,7 +1,4 @@
-#FROM php:7.4.23-fpm-alpine3.13
-FROM php:8.0.3-fpm-alpine3.13
-
-#ARG GITLAB_BIGLAND_URL=gitlab.bigland.ru
+FROM php:8.1.6-fpm-alpine3.14
 
 WORKDIR /var/www/html
 
@@ -27,7 +24,7 @@ RUN install-php-extensions \
 RUN install-php-extensions pdo_mysql
 RUN install-php-extensions mysqli
 
-# Install composerred
+# Install composer
 RUN curl -sS https://getcomposer.org/installer | php -- \
     --filename=composer \
     --version=2.0.14 \

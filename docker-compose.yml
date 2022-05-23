@@ -33,7 +33,7 @@ services:
       - ./.env
     restart: always
     volumes:
-      - ./docker/mysql/data:/var/lib/mysql
+      - zbbg.data-mysql:/var/lib/mysql
       - ./docker/mysql/sql-dist/:/docker-entrypoint-initdb.d/
     expose:
       - 3306
