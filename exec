@@ -10,8 +10,6 @@ if [[ ${PIPESTATUS[0]} -ne 4 ]]; then
     exit 1
 fi
 
-export $(cat .env | grep 'YII_ENV' | xargs)
-
 OPTIONS=e:c:u:
 LONGOPTS=env:,container:,u:
 
@@ -29,8 +27,6 @@ fi
 eval set -- "$PARSED"
 
 declare -A files _file _container _user
-#files=( ["dev"]="docker-compose.yml" ["test"]="docker-compose.test.yml" ["prod"]="docker-compose.prod.yml" ["stage"]="docker-compose.stage.yml")
-#_file="${files["${YII_ENV}"]}"
 _file="docker-compose.yml"
 _container=""
 _user="$(id -u)"

@@ -6,7 +6,7 @@ envs:
 
 init: envs volume
 	docker-compose down --remove-orphans
-	docker-compose up -d --force-recreate*
+	docker-compose up -d --force-recreate
 	./php -- composer i --ignore-platform-reqs
 
 down: envs
@@ -15,6 +15,6 @@ down: envs
 volume:
 	docker volume create --name zbbg.data-mysql || true
 
-prune:
+prune: envs
 	docker-compose rm -fsv
 	docker volume rm zbbg.data-mysql || true
